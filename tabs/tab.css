@@ -1,0 +1,16 @@
+li{
+    display: inline;
+    padding-left: 20px;
+    padding-right: 20px;
+    border-top:1px solid black;
+    border-bottom:1px solid black;
+    border-right:1px solid black;
+    border-top-right-radius:7px;
+    cursor: pointer;
+}
+li.active {
+    background: #eee;
+}
+ul{
+    margin-left: -40px;
+}
