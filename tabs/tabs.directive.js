@@ -9,23 +9,36 @@
             transclude: true,
             controllerAs: 'tabsCtrl',
             controller: tabsController,
-            bindToController : {
+            bindToController: {
                 api: '='
             }
         };
     }
     
-    tabsController.$inject = ['Api'];
-    function tabsController(Api) {
+    function tabsController() {
+        var tabCounter = 0;
         var tabsCtrl = this;
         tabsCtrl.tabs = [];
         tabsCtrl.tabIndex = 0;
+        
         var eventRegisterMap = {
             beforeChange: [],
-            afterChange : []
+            afterChange: []
         };
-        tabsCtrl.api = new Api(tabsCtrl.tabIndex, eventRegisterMap);
-        var tabCounter = 0;
+        
+        tabsCtrl.api = {
+            addListener: function (name, callback) {
+                if (eventRegisterMap[name]) {
+                    eventRegisterMap[name].push(callback);
+                }
+                else {
+                    throw 'there is no callback name: ' + name;
+                }
+            },
+            getTabIndex: function () {
+                return tabsCtrl.tabIndex;
+            }
+        };
         
         tabsCtrl.add = function (tab) {
             if (!tabsCtrl.tabs.length) {
@@ -36,18 +49,21 @@
         };
         
         tabsCtrl.select = function (tab) {
+            if (tab.index === tabsCtrl.tabIndex) return;
+            
             tabsCtrl.$$applyCallback('beforeChange');
             angular.forEach(tabsCtrl.tabs, function (tab) {
                 tab.active = false;
             });
             tab.active = true;
+            tabsCtrl.tabIndex = tab.index;
             tabsCtrl.$$applyCallback('afterChange');
-    
+            
         };
-    
-        tabsCtrl.$$applyCallback = function (name) {
         
-            if(eventRegisterMap[name]){
+        tabsCtrl.$$applyCallback = function (name) {
+            
+            if (eventRegisterMap[name]) {
                 angular.forEach(eventRegisterMap[name], function (callback) {
                     callback();
                 });
@@ -55,9 +71,6 @@
                 throw 'there is no callback name: ' + name;
             }
         }
-    
-       
-        
     }
     
 })();

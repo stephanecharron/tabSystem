@@ -9,18 +9,17 @@
 </head>
 <body ng-app="app">
 
-<div ng-controller="mainController as main">
+<main-controller>
     <tabs api="main.api" ng-cloak="">
         <tab name="tab 1"> tab content 1</tab>
         <tab name="tab 2">tab content 2</tab>
         <tab name="tab 3">tab content 3</tab>
     </tabs>
-</div>
+</main-controller>
 
 <script src="tabs/tabSystem.module.js"></script>
 <script src="tabs/tab.directive.js"></script>
 <script src="tabs/tabs.directive.js"></script>
-<script src="tabs/api.js"></script>
 <script src="module.js"></script>
 <script src="main.js"></script>
 
