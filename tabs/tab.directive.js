@@ -20,7 +20,7 @@
             link: function ($scope, $elem, $attr, $controllers) {
                 var CTRL = {
                     TABS: $controllers[0],
-                    TAB: $controllers[1],
+                    TAB: $controllers[1]
                 };
                 
                 CTRL.TAB.name = $scope.name;
