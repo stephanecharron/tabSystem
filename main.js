@@ -1,6 +1,6 @@
 (function () {
     'use strict';
-    angular.module('app').directive('mainController', function () {
+    angular.module('app').directive('mainController', function ($log) {
         return {
             restrict: 'E',
             controller: function () {
@@ -16,10 +16,10 @@
                     
                     if (newValue !== oldValue) {
                         main.listeners.push(main.api.addListener('beforeChange', function () {
-                            console.log('from: ' + main.api.getTabIndex());
+                            $log.info('from: ' + main.api.getTabIndex());
                         }));
                         main.listeners.push(main.api.addListener('afterChange', function () {
-                            console.log('to: ' + main.api.getTabIndex());
+                            $log.info('to: ' + main.api.getTabIndex());
                         }));
                         watchApi();
                     }
