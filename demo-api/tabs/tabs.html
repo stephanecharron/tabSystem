@@ -1,0 +1,9 @@
+<div>
+    <h3>Tabs System</h3>
+    <ul>
+        <li ng-repeat="tab in tabsCtrl.tabs"
+            ng-click="tabsCtrl.select(tab)"
+            ng-class="{active: tab.active}">{{tab.name}}</li>
+    </ul>
+    <ng-transclude></ng-transclude>
+</div>
