@@ -5,6 +5,11 @@
     <title>Tab System Demo</title>
     <script src="bower_components/angular/angular.js"></script>
     <link rel="stylesheet" type="text/css" href="tabs/tab.css"/>
+    <style type="text/css">
+        .removeListeners{
+            margin-top: 50px;
+        }
+    </style>
 
 </head>
 <body ng-app="app">
@@ -15,6 +20,8 @@
         <tab name="tab 2">tab content 2</tab>
         <tab name="tab 3">tab content 3</tab>
     </tabs>
+    <button class="removeListeners" ng-click="main.removeListeners()">Remove Listeners</button>
+
 </main-controller>
 
 <script src="tabs/tabSystem.module.js"></script>

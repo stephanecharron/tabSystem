@@ -2,6 +2,7 @@
     'use strict';
     angular.module('tabSystem').directive('tabs', tabs);
     
+    tabs.$inject = ['$log'];
     function tabs() {
         return {
             restrict: 'E',
@@ -15,7 +16,7 @@
         };
     }
     
-    function tabsController() {
+    function tabsController($log) {
         var tabCounter = 0;
         var tabsCtrl = this;
         tabsCtrl.tabs = [];
@@ -30,10 +31,17 @@
             addListener: function (name, callback) {
                 if (eventRegisterMap[name]) {
                     eventRegisterMap[name].push(callback);
+                    $log.info(name, callback, ' -> added');
+                    return callback;
                 }
                 else {
                     throw 'there is no callback name: ' + name;
                 }
+            },
+            removeListener: function (listener) {
+                eventRegisterMap.beforeChange.splice(listener, 1);
+                eventRegisterMap.afterChange.splice(listener, 1);
+                $log.info(listener, ' -> remove');
             },
             getTabIndex: function () {
                 return tabsCtrl.tabIndex;
