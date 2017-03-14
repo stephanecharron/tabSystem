@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Tab System Demo</title>
+    <script src="../angular.js"></script>
+    <link rel="stylesheet" type="text/css" href="tabs/tab.css"/>
+    <style type="text/css">
+        .removeListeners{
+            margin-top: 50px;
+        }
+    </style>
+
+</head>
+<body ng-app="app">
+
+<main-controller>
+    <tabs api="main.api" ng-cloak="">
+        <tab name="tab 1"> tab content 1</tab>
+        <tab name="tab 2">tab content 2</tab>
+        <tab name="tab 3">tab content 3</tab>
+    </tabs>
+    <button class="removeListeners" ng-click="main.removeListeners()">Remove Listeners</button>
+
+</main-controller>
+
+<script src="tabs/tabSystem.module.js"></script>
+<script src="tabs/tab.directive.js"></script>
+<script src="tabs/tabs.directive.js"></script>
+<script src="module.js"></script>
+<script src="main.js"></script>
+
+</body>
+</html>
