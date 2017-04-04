@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Inputs puck</title>
+</head>
+<body ng-app="app">
+
+<inputs-control ng-cloak="">
+    <input ng-repeat="inputObj in inputsController.inputs" ng-model="inputObj.value" type="number"  ng-change="inputsController.next(inputObj); inputsController.update()"  pin/>
+    <br />{{inputsController.pin}}
+</inputs-control>
+
+<script src="bower_components/jquery/dist/jquery.js">
+</script>
+<script src="bower_components/angular/angular.js">
+</script>
+<script src="main.js"></script>
+
+</body>
+</html>
