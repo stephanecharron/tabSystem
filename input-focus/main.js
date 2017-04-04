@@ -11,10 +11,8 @@ angular.module('app').directive('inputsControl', function ($controller) {
             this.pin = '';
     
             this.add = function (input) {
-                if(this.inputs.length == 1){
-                    input.focus();
-                }
                 this.inputs[indexInsert].elem = input;
+                this.inputs[0].elem.focus();
                 indexInsert++;
             };
             
