@@ -23,8 +23,6 @@ angular.module('app').directive('inputsControl', function ($controller) {
                 var index = this.inputs.indexOf(input);
                 if(!!this.inputs[index+1]){
                     this.inputs[index+1].elem.focus();
-                }else {
-                    $('#nf').focus();
                 }
             };
             
