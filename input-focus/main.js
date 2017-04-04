@@ -15,7 +15,6 @@ angular.module('app').directive('inputsControl', function ($controller) {
                     input.focus();
                 }
                 this.inputs[indexInsert].elem = input;
-                this.inputs[0].elem.focus();
                 indexInsert++;
             };
             
