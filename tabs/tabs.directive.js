@@ -12,6 +12,10 @@
             controller: tabsController,
             bindToController: {
                 api: '='
+            },
+            link: function (s,e,a,c) {
+                var a =1;
+
             }
         };
     }

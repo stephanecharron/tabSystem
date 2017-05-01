@@ -13,7 +13,7 @@
             link: function (scope, elem, attrs, main) {
                 
                 var watchApi = scope.$watch('main.api', function (newValue, oldValue) {
-                    
+
                     if (newValue !== oldValue) {
                         main.listeners.push(main.api.addListener('beforeChange', function () {
                             $log.info('from: ' + main.api.getTabIndex());
