@@ -1,0 +1,30 @@
+{
+  "name": "tab-system",
+  "version": "1.0.0",
+  "description": "",
+  "main": "main.js",
+  "scripts": {
+    "test": "./node_modules/karma/bin/karma start karma.conf.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/stephanecharron/tabSystem.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/stephanecharron/tabSystem/issues"
+  },
+  "homepage": "https://github.com/stephanecharron/tabSystem#readme",
+  "devDependencies": {
+    "angular-mocks": "^1.6.4",
+    "jasmine-core": "^2.6.1",
+    "jquery": "^3.2.1",
+    "karma": "^1.6.0",
+    "karma-chrome-launcher": "^2.0.0",
+    "karma-html2js-preprocessor": "^1.1.0",
+    "karma-jasmine": "^1.1.0",
+    "karma-ng-html2js-preprocessor": "^1.0.0",
+    "karma-phantomjs-launcher": "^1.0.4"
+  }
+}
